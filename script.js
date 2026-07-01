@@ -1,4 +1,4 @@
-document.getElementById("partnerForm").addEventListener("submit", async function (e) {
+document.getElementById("f").addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const data = {

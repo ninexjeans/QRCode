@@ -1,1 +1,0 @@
-function doPost(e){var sh=SpreadsheetApp.getActive().getSheetByName('Leads');var d=JSON.parse(e.postData.contents);sh.appendRow([new Date(),d.company,d.person,d.mobile,d.location,d.type]);return ContentService.createTextOutput('OK');}

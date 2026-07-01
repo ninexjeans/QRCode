@@ -10,24 +10,26 @@ document.getElementById("partnerForm").addEventListener("submit", async function
     };
 
     try {
-
         const response = await fetch("https://script.google.com/macros/s/AKfycby2zaeHi96K4_nuXAHNzvwuR_cIgaLGcheFxosHnDiOiyWeIlcne5Oi26ZBVg0M3lD35w/exec", {
             method: "POST",
+            body: JSON.stringify(data),
             headers: {
                 "Content-Type": "text/plain;charset=utf-8"
-            },
-            body: JSON.stringify(data),
-            redirect: "follow"
+            }
         });
 
-        alert("Registration submitted successfully!");
+        const result = await response.text();
+        console.log(result);
 
-        document.getElementById("partnerForm").reset();
+        if (response.ok) {
+            alert("✅ Registration saved successfully!");
+            document.getElementById("partnerForm").reset();
+        } else {
+            alert("❌ Failed to save data.");
+        }
 
     } catch (err) {
-
         console.error(err);
-        alert("Submission failed.");
-
+        alert("❌ Error connecting to Google Sheets.");
     }
 });

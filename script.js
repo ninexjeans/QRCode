@@ -1,7 +1,7 @@
 document.getElementById("f").addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    console.log("Submit event fired");
+    console.log("1. Submit fired");
 
     const data = {
         company: document.getElementById("company").value,
@@ -11,27 +11,29 @@ document.getElementById("f").addEventListener("submit", async function (e) {
         type: document.getElementById("type").value
     };
 
+    console.log("2. Data:", data);
+
     try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycby2zaeHi96K4_nuXAHNzvwuR_cIgaLGcheFxosHnDiOiyWeIlcne5Oi26ZBVg0M3lD35w/exec", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "text/plain;charset=utf-8"
+        console.log("3. About to call Apps Script");
+
+        const response = await fetch(
+            "https://script.google.com/macros/s/AKfycby2zaeHi96K4_nuXAHNzvwuR_cIgaLGcheFxosHnDiOiyWeIlcne5Oi26ZBVg0M3lD35w/exec",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "text/plain"
+                },
+                body: JSON.stringify(data)
             }
-        });
+        );
 
-        const result = await response.text();
-        console.log(result);
+        console.log("4. Response:", response);
 
-        if (response.ok) {
-            alert("✅ Registration saved successfully!");
-            document.getElementById("partnerForm").reset();
-        } else {
-            alert("❌ Failed to save data.");
-        }
+        const text = await response.text();
+
+        console.log("5. Body:", text);
 
     } catch (err) {
-        console.error(err);
-        alert("❌ Error connecting to Google Sheets.");
+        console.error("6. ERROR:", err);
     }
 });

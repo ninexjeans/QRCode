@@ -1,0 +1,10 @@
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#0f172a,#1e293b);
+display:flex;justify-content:center;align-items:center;
+min-height:100vh;margin:0;color:white}
+.container{width:90%;max-width:500px;background:rgba(255,255,255,.08);
+padding:30px;border-radius:20px}
+input,select,button{width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none}
+button{cursor:pointer}
+#msg{margin-top:15px;font-weight:bold}

@@ -1,1 +1,43 @@
-<html><head><link rel='stylesheet' href='style.css'></head><body><h1>Ninex Jeans</h1><form id='f'><input id='company' placeholder='Company' required><input id='person' placeholder='Person' required><input id='mobile' placeholder='Mobile' required><input id='location' placeholder='Location' required><select id='type'><option>Wholesaler</option><option>Retailer</option><option>Manufacturer</option></select><button>Submit</button></form><script src='script.js'></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ninex Jeans</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Optional better font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <h1>Ninex Jeans</h1>
+
+    <form id="f">
+
+        <input id="company" type="text" placeholder="Company" required>
+
+        <input id="person" type="text" placeholder="Person Name" required>
+
+        <input id="mobile" type="tel" placeholder="Mobile Number" required>
+
+        <input id="location" type="text" placeholder="Location" required>
+
+        <select id="type" required>
+            <option value="Wholesaler">Wholesaler</option>
+            <option value="Retailer">Retailer</option>
+            <option value="Manufacturer">Manufacturer</option>
+        </select>
+
+        <!-- FIX: important for JS -->
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

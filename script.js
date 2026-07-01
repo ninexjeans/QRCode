@@ -1,6 +1,8 @@
 document.getElementById("f").addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    console.log("Submit event fired");
+
     const data = {
         company: document.getElementById("company").value,
         person: document.getElementById("person").value,

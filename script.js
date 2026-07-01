@@ -1,1 +1,0 @@
-document.getElementById('f').onsubmit=async(e)=>{e.preventDefault();const d={company:company.value,person:person.value,mobile:mobile.value,location:location.value,type:type.value};const r=await fetch('/api/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});alert(await r.text())}

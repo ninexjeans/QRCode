@@ -1,1 +1,23 @@
-document.getElementById('f').onsubmit=async(e)=>{e.preventDefault();const d={company:company.value,person:person.value,mobile:mobile.value,location:location.value,type:type.value};const r=await fetch('/api/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});alert(await r.text())}
+function doPost(e) {
+
+  if (!e || !e.postData) {
+    return ContentService
+      .createTextOutput("The script is working. Send a POST request from your website.");
+  }
+
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Leads");
+  var data = JSON.parse(e.postData.contents);
+
+  sheet.appendRow([
+    new Date(),
+    data.company,
+    data.person,
+    data.mobile,
+    data.location,
+    data.type
+  ]);
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ success: true }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
